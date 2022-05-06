@@ -47,7 +47,7 @@ git flow init --defaults && git push -u origin  --all
 
 git flow feature start init_src && git push -u origin HEAD
 
-export COMMIT_MESSAGE="create vite svelte / typescript example app"
+export COMMIT_MESSAGE="vite / svelte / typescript / tailwind css example app works see tailwind css form"
 
 git add -A && git commit -m "${COMMIT_MESSAGE}" && git push -u origin HEAD
 ```

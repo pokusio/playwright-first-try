@@ -36,9 +36,242 @@ cd vite-project/ && npm i && npm run dev
 # ---
 # Ctrl + C to stop the dev server
 
-cd ../../../../../
+cd ../../../../../../
+
 pwd
 ```
+
+* step 2, add Tailwind CSS :
+
+
+```bash
+
+cd parts/using/the_test_runner/examples/1/vite-project/
+
+
+
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+npx svelte-add@latest tailwindcss && pnpm i
+
+
+# ---
+# Add the src/models/github.ts
+#
+mkdir -p ./src/models/
+cat <<EOF>./src/models/github.ts
+  export interface ActivityContent {
+  	profileName: string;
+  	profileUrl: string;
+  	time: string;
+  	repo: Repository
+  }
+
+  interface Repository {
+  	name: string;
+  	url: string;
+  	description: string;
+  	language: string;
+  	stars: number;
+  	updatedDate: string;
+  }
+EOF
+
+# ---
+# Add the ./src/ActivityItem.svelte source file
+cat <<EOF>./src/ActivityItem.svelte
+  <script type="ts">
+    import type { ActivityContent } from "models/github";
+    import logo from "./assets/svelte.png";
+
+    export let githubProfileName;
+
+    var activityContent: ActivityContent = {
+      profileName: \`\${githubProfileName}\`, /// "profile2",
+      profileUrl: "https://github.com/eternaldevgames",
+      time: "4 days ago",
+      repo: {
+        name: "eternaldevgames/svelte-projects",
+        url: "https://github.com/eternaldevgames/svelte-projects",
+        description: "This Repository contains multiple svelte project to learn",
+        language: "Svelte",
+        stars: 2,
+        updatedDate: "Oct 15",
+      },
+    };
+  </script>
+
+  <div class="p-3 m-3">
+    <div class="flex flex-row items-center">
+      <img class="h-8 w-8 rounded-full bg-gray-200" src={logo} alt="hero" />
+      <h4 class="p-2">
+        <a href={activityContent.profileUrl}>{activityContent.profileName}</a>
+        started the repo
+        <a href={activityContent.repo.url}>{activityContent.repo.name}</a>
+      </h4>
+      <p class="text-gray-500 text-sm">{activityContent.time}</p>
+    </div>
+    <div class="ml-8 p-5 rounded-lg bg-white border border-black">
+      <a class="text-lg" href={activityContent.repo.url}
+        >{activityContent.repo.name}</a
+      >
+      <p>{activityContent.repo.description}</p>
+
+      <div class="flex flex-row items-center mt-4">
+        <div class="w-3 h-3 bg-red-600 rounded-full ml-1 mr-1" />
+        <p class="mr-5">{activityContent.repo.language}</p>
+        <img
+          src="https://img.icons8.com/material-outlined/24/000000/star--v2.png"
+          alt="star"
+        />
+        <p class="ml-1 mr-5">{activityContent.repo.stars}</p>
+        <p class="mr-5">Updated {activityContent.repo.updatedDate}</p>
+      </div>
+    </div>
+  </div>
+EOF
+
+
+
+# --
+# Modify the default src/App.svelte
+
+rm src/App.svelte
+
+cat <<EOF>./src/App.svelte
+<script lang="ts">
+  import logo from './assets/svelte.png'
+  import Counter from './lib/Counter.svelte'
+  import TailwindCss from './global.css'; /// Import the global tailwind css dependencies into the App.svelte file inside the script tag.
+  import GithubActivityItem from './ActivityItem.svelte';
+
+  import GithubActivityItemsList from './GithubActivityItemsList.svelte';
+
+  const githubActivityItems = [
+    { githubProfileName: 'I am red!' },
+    { githubProfileName: 'I am blue!' }
+  ];
+</script>
+
+<!-- After the script tag, call the TailwindCSS component to apply the overall style setup. -->
+<!--
+<TailwindCss />
+-->
+
+
+<main>
+  <img src={logo} alt="Svelte Logo" />
+  <h1>Hello Typescript!</h1>
+
+  <Counter />
+
+  <p>
+    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
+    apps.
+  </p>
+
+  <p>
+    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
+    the officially supported framework, also powered by Vite!
+  </p>
+
+  <h1>
+  	Github Activity Items :
+  </h1>
+
+  <ul>
+    <li><h3>This will be an undefined Github Activity Item : </h3><GithubActivityItem /></li>
+  {#each githubActivityItems as item(item.githubProfileName)}
+    <GithubActivityItem  githubProfileName={item.githubProfileName}/>
+  {/each}
+  </ul>
+
+
+
+
+
+
+
+
+
+</main>
+
+<style>
+  :root {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  main {
+    text-align: center;
+    padding: 1em;
+    margin: 0 auto;
+  }
+
+  img {
+    height: 16rem;
+    width: 16rem;
+  }
+
+  h1 {
+    color: #ff3e00;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: 100;
+    line-height: 1.1;
+    margin: 2rem auto;
+    max-width: 14rem;
+  }
+
+  p {
+    max-width: 14rem;
+    margin: 1rem auto;
+    line-height: 1.35;
+  }
+
+  @media (min-width: 480px) {
+    h1 {
+      max-width: none;
+    }
+
+    p {
+      max-width: none;
+    }
+  }
+</style>
+EOF
+
+
+# -->>>>> FINALLY RUN IT!
+npm i && npm run dev
+# ---
+# Ctrl + C to stop the dev server
+
+cd ../../../../../../
+
+pwd
+
+
+```
+
+* step 3, Run IT ! :
+
+```bash
+
+cd parts/using/the_test_runner/examples/1/vite-project/
+
+pnpm i && npm i
+# -->>>>> FINALLY RUN IT!
+npm run dev
+# ---
+# Ctrl + C to stop the dev server
+
+cd ../../../../../../
+
+pwd
+
+```
+
 
 ### Adding first Playwright Tests
 
