@@ -272,6 +272,117 @@ pwd
 
 ```
 
+* step 4, add daisy ui framework ( https://daisyui.com/docs/install/ , https://daisyui.com/docs/customize/ ) :
+
+```bash
+export DAISY_UI_VERSION="2.14.3"
+npm i "daisyui@${DAISY_UI_VERSION}"
+# npm uninstall daisyui
+
+# ---
+# Add the Tailwind CSS Typography plugin, using npm inst all + additional config into tailwind.config.cjs to require tailwind css Typography plugin
+
+export TAILWINDCSS_TYPO_VERSION="0.5.2"
+npm i "@tailwindcss/typography@${TAILWINDCSS_TYPO_VERSION}"
+
+# npm uninstall @tailwindcss/typography
+
+# ---
+# We work with a stack that uses [tailwind.config.cjs] instead of [tailwind.config.js] :
+#   => config must require the daisyui framework, and all tailwindcss plugins ussed, like the tyypography plugin
+#   => we also add a saidy ui theme, named 'elections_legislatives_theme'
+# ---
+## cat <<EOF>./tailwind.config.js
+## module.exports = {
+##   //...
+##   plugins: [require("daisyui")],
+## }
+## EOF
+
+cat <<EOF>./tailwind.config.cjs
+
+const config = {
+  content: ["./src/**/*.{html,js,svelte,ts}"],
+
+  theme: {
+    extend: {},
+  },
+  daisyui: {
+    // themes: [],
+    themes: [
+      // Daisy UI builtin Themes
+      "light", "dark", "cupcake", "bumblebee", "emerald", "corporate", "synthwave", "retro", "cyberpunk", "valentine", "halloween", "garden", "forest", "aqua", "lofi", "pastel", "fantasy", "wireframe", "black", "luxury", "dracula", "cmyk", "autumn", "business", "acid", "lemonade", "night", "coffee", "winter",
+      // Custom personal themes
+      {
+        elections_legislatives_theme: {
+            "primary": "#570DF8",
+            "secondary": "#F000B8",
+            "accent": "#37CDBE",
+            "neutral": "#3D4451",
+            "base-100": "#FFFFFF",
+            "info": "#3ABFF8",
+            "success": "#36D399",
+            "warning": "#FBBD23",
+            "error": "#F87272",
+        },
+        elections_imaginaires_theme: {
+            "primary": "#FF0DF8",
+            "secondary": "#F05622",
+            "accent": "#90FD00",
+            "neutral": "#3DFF01",
+            "base-100": "#999999",
+            "info": "#EB513F",
+            "success": "#360099",
+            "warning": "#F00D20",
+            "error": "#F8AAFF",
+        },
+      },
+    ],
+  },
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+};
+
+module.exports = config;
+
+EOF
+
+```
+
+
+* Now you should see something new in the stdout of the dev server :
+
+```bash
+
+  vite v2.9.8 dev server running at:
+
+  > Local: http://localhost:3000/
+  > Network: use `--host` to expose
+
+  ready in 267ms.
+
+
+🌼 daisyUI components 2.14.3  https://github.com/saadeghi/daisyui
+  ✔︎ Including:  base, components, themes[29], utilities
+
+10:51:16 PM [vite-plugin-svelte] /home/jibl/playwright-first-try/parts/using/the_test_runner/examples/1/vite-project/src/App.svelte:56:0 A11y: Screenreaders already announce <img> elements as an image.
+
+🌼 daisyUI components 2.14.3  https://github.com/saadeghi/daisyui
+  ✔︎ Including:  base, components, themes[29], utilities
+
+```
+* From there, I added multiple Daisy UI components, including a Count Down component. That compoennt needs an event to tick, and i want the best way to do that: `RxJS`
+* Now I add RxJS :
+
+```bash
+export RXJS_VERSION="7.5.5"
+npm i rxjs@${RXJS_VERSION}
+# npm uninsstall rxjs
+
+
+echo " -- >> Now we can use [RxJS] in script tags in *.svelte components files"
+
+```
+
 
 ### Adding first Playwright Tests
 
@@ -327,4 +438,15 @@ The features will be :
 
 ## References
 
-*
+* Tailwind css :
+  * `Daisy UI` :
+    * https://daisyui.com/docs/install/
+    * https://daisyui.com/docs/customize/
+    * https://daisyui.com/theme-generator/
+    *
+* Svelte and RxJS setup :
+  * https://timdeschryver.dev/blog/unlocking-reactivity-with-svelte-and-rxjs
+  * https://www.learnrxjs.io/learn-rxjs/operators/creation/timer
+  * may also use interval to be able to start / stop / reset the countdown :
+    * https://www.learnrxjs.io/learn-rxjs/recipes/stop-watch
+    * https://stackblitz.com/edit/rxjs-stop-watch-2ud3od?file=index.ts
