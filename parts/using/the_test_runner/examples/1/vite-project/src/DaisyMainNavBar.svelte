@@ -6,6 +6,7 @@
 
 	import logo from './assets/svelte.png'
   import loginImage from './assets/almos-bechtold-AJ_Mou1FUS8-unsplash.jpg'
+	import logoNoTopImage from './assets/logos/notop/ccd.logo.notop.svg'
 
   import LoginForm from './components/login-form.svelte'
 
@@ -125,8 +126,8 @@
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-10 w-10 sm:w-8 lg:w-10" src="/src/assets/logos/notop/ccd.logo.notop.svg" alt="{menuTitle}">
-          <img class="hidden lg:block h-10 w-10 sm:w-8 lg:w-10" src="/src/assets/logos/notop/ccd.logo.notop.svg" alt="{menuTitle}">
+          <img class="block lg:hidden h-10 w-10 sm:w-8 lg:w-10" src="{logoNoTopImage}" alt="{menuTitle}">
+          <img class="hidden lg:block h-10 w-10 sm:w-8 lg:w-10" src="{logoNoTopImage}" alt="{menuTitle}">
         </div>
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
@@ -343,8 +344,8 @@
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-10 w-10 sm:w-8 lg:w-10" src="/src/assets/logos/notop/ccd.logo.notop.svg" alt="{menuTitle}">
-          <img class="hidden lg:block h-10 w-10 sm:w-8 lg:w-10" src="/src/assets/logos/notop/ccd.logo.notop.svg" alt="{menuTitle}">
+          <img class="block lg:hidden h-10 w-10 sm:w-8 lg:w-10" src="{logoNoTopImage}" alt="{menuTitle}">
+          <img class="hidden lg:block h-10 w-10 sm:w-8 lg:w-10" src="{logoNoTopImage}" alt="{menuTitle}">
         </div>
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">

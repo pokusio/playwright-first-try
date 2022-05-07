@@ -440,7 +440,7 @@ The features will be :
 * How to deploy PR branches with surge :
 
 ```bash
-export DEPLOYMENT_DOMAIN=conctrolecitoyen.surge.sh
+export DEPLOYMENT_DOMAIN=controlecitoyen.surge.sh
 export DEPLOYMENT_BASE_URL=https://${DEPLOYMENT_DOMAIN}
 
 if [ -d ./dist ]; then
