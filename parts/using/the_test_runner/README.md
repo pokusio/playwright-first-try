@@ -383,7 +383,6 @@ echo " -- >> Now we can use [RxJS] in script tags in *.svelte components files"
 
 ```
 
-
 ### Adding first Playwright Tests
 
 
@@ -436,6 +435,29 @@ The features will be :
           * for each step, a set of referenecs to the law a given, and a full explanation is given on, how those laws allow you to perfomr this step in a control process of the election/vote process
         * legal resources : a reference list of all leglal resources mentioned into the
 
+## How to deploy PR branches with surge
+
+* How to deploy PR branches with surge :
+
+```bash
+export DEPLOYMENT_DOMAIN=conctrolecitoyen.surge.sh
+export DEPLOYMENT_BASE_URL=https://${DEPLOYMENT_DOMAIN}
+
+if [ -d ./dist ]; then
+  rm -fr ./dist
+fi;
+
+mkdir -p  ./dist
+
+viteBuildNdeploy () {
+  npm run build
+  surge ./dist "${DEPLOYMENT_DOMAIN}"
+}
+
+viteBuildNdeploy
+
+```
+
 ## References
 
 * Tailwind css :
@@ -444,6 +466,8 @@ The features will be :
     * https://daisyui.com/docs/customize/
     * https://daisyui.com/theme-generator/
     *
+  * Respponsiveness :
+    * https://tailwindcss.com/docs/responsive-design
 * Svelte and RxJS setup :
   * https://timdeschryver.dev/blog/unlocking-reactivity-with-svelte-and-rxjs
   * https://www.learnrxjs.io/learn-rxjs/operators/creation/timer
