@@ -1,5 +1,11 @@
 <script lang="ts">
-  import logo from './assets/svelte.png'
+  // import logo from './assets/svelte.png'
+  // import logo from './assets/logos/notop/ccd.logo.notop.svg'
+  // import logo from './assets/logos/notop/ccd.logo.notop.64x64.png'
+  import logo from './assets/logos/notop/ccd.logo.notop.svg'
+  import bigLogo from './assets/logos/cce.logo.boxy-svg.png'
+
+
   import loginImage from './assets/almos-bechtold-AJ_Mou1FUS8-unsplash.jpg'
   import Counter from './lib/Counter.svelte'
   import './global.css'; /// Import the global tailwind css dependencies into the App.svelte file inside the script tag.
@@ -124,7 +130,7 @@
 
 <main >
 
-  <img src={logo} alt="Svelte Logo" />
+  <img src={bigLogo} alt="Svelte Logo" class="mx-auto" />
   <h1>Bienvenue!</h1>
 
   <Counter />

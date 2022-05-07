@@ -474,3 +474,5 @@ viteBuildNdeploy
   * may also use interval to be able to start / stop / reset the countdown :
     * https://www.learnrxjs.io/learn-rxjs/recipes/stop-watch
     * https://stackblitz.com/edit/rxjs-stop-watch-2ud3od?file=index.ts
+* SVG editor :
+  * https://boxy-svg.com/ (it has a live demo at https://boxy-svg.com/app, and i think they have source code on github) / https://boxy-svg.com/app live demo is excellent very good capabilities

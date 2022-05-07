@@ -2,7 +2,7 @@
     import type { ActivityContent } from "models/github";
     import logo from "./assets/svelte.png";
 
-    export let githubProfileName;
+    export let githubProfileName
 
     var activityContent: ActivityContent = {
       profileName: `${githubProfileName}`, /// "profile2",
