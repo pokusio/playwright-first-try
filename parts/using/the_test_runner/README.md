@@ -468,7 +468,7 @@ viteBuildNdeploy
     *
   * Respponsiveness :
     * https://tailwindcss.com/docs/responsive-design
-* Svelte and RxJS setup :
+* Svelte and `RxJS` setup :
   * https://timdeschryver.dev/blog/unlocking-reactivity-with-svelte-and-rxjs
   * https://www.learnrxjs.io/learn-rxjs/operators/creation/timer
   * may also use interval to be able to start / stop / reset the countdown :
@@ -476,3 +476,6 @@ viteBuildNdeploy
     * https://stackblitz.com/edit/rxjs-stop-watch-2ud3od?file=index.ts
 * SVG editor :
   * https://boxy-svg.com/ (it has a live demo at https://boxy-svg.com/app, and i think they have source code on github) / https://boxy-svg.com/app live demo is excellent very good capabilities
+* `vite` documentation :
+  * The vitejs docuemntation website, simply is a `vitepress` https://github.com/vitejs/vite/tree/main/docs/.vitepress
+  * I was looking up that info, just to try and extract the minimal javascrpt required for the "Daisy UI Theme Drop down list"
