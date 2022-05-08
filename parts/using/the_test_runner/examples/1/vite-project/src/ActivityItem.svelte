@@ -19,7 +19,7 @@
     };
 
   </script>
-<div class="flex">
+<div class="block">
   <div class="p-3 m-3 text-zinc-500">
     <div class="flex flex-row items-center">
       <img class="h-8 w-8 rounded-full bg-gray-200" src={logo} alt="hero" />

@@ -130,59 +130,73 @@
 
 <main >
 
-  <img src={bigLogo} alt="Svelte Logo" class="mx-auto" />
-  <h1>Bienvenue!</h1>
+<div class="block mx-auto">
+<img src={bigLogo} alt="Svelte Logo" class="mx-auto" />
+<h1>Bienvenue!</h1>
 
-  <Counter />
+<Counter />
+<p>
+  Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
+  apps.
+</p>
+
+<p>
+  Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
+  the officially supported framework, also powered by Vite!
+</p>
+</div>
+
+<div class="block mx-auto w-full">
+
+
   <DaisyCountDown days="15" hours="10" minutes="24" seconds="53" />
+
+
+</div>
+
+<div class="flex mx-auto">
+
 
   <DaisyCarousel />
 
-  <p>
-    Visit <a href="https://svelte.dev">svelte.dev</a> to learn how to build Svelte
-    apps.
-  </p>
 
-  <p>
-    Check out <a href="https://github.com/sveltejs/kit#readme">SvelteKit</a> for
-    the officially supported framework, also powered by Vite!
-  </p>
+</div>
 
+<div class="block">
   <h1 class="bg-cyan-200">
   Github Activity Items :
   </h1>
 
-  <ul class="text-zinc-500">
-    <li class="text-zinc-500"><h3 class="text-zinc-500">This will be an undefined Github Activity Item : </h3><GithubActivityItem /></li>
+  <ul class="text-zinc-500 mx-auto">
+    <li class="text-zinc-500"><h3 class="text-zinc-500">This will be an undefined Github Activity Item : <GithubActivityItem /></li>
   {#each githubActivityItems as item(item.githubProfileName)}
     <GithubActivityItem  githubProfileName={item.githubProfileName}/>
   {/each}
   </ul>
 
 
+
+</div>
 <div class="flex">
-<div class="bg-green-100 shadow-lg max-w-lg mx-auto mt-4 content-center justify-center h-200  m-5 p-3 rounded ">
-<img src="{loginImage}" alt="Pokus Login Image" class="w-300 h-100 "/>
-<h1 class="w-full">Example Tailwind CSS (almost) Responsive form </h1>
-<div class="mb-4 text-orange-500 text-xl mt-2 mb-2 py-5">
-  <label for="username">Username (email or user alias): </label>
-  <input type="text" id="username" name="username" class="border border-gray-300 shadow-inner mb-5 mt-5 mx-auto py-2 px-10 w-full rounded hover:bg-blue-100" />
+  <div class="bg-green-100 shadow-lg max-w-lg mx-auto mt-4 content-center justify-center h-200  m-5 p-3 rounded ">
+  <img src="{loginImage}" alt="Pokus Login Image" class="w-300 h-100 "/>
+  <h1 class="w-full">Example Tailwind CSS (almost) Responsive form </h1>
+    <div class="mb-4 text-orange-500 text-xl mt-2 mb-2 py-5">
+      <label for="username">Username (email or user alias): </label>
+      <input type="text" id="username" name="username" class="border border-gray-300 shadow-inner mb-5 mt-5 mx-auto py-2 px-10 w-full rounded hover:bg-blue-100" />
+    </div>
+
+    <div class="text-orange-500 text-xl m-5 p-3 rounded">
+      <label for="password">Password: </label>
+      <input type="password" id="password" name="password" class="border border-gray-300 shadow-inner mb-5 mt-5 mx-auto py-2 px-10 w-full rounded hover:bg-blue-100" />
+    </div>
+
+    <p>(many <a class="text-blue-500" href="https://www.youtube.com/watch?v=D6-g6JgiUIs">thx to @Grafikart ;) !</a> ) </p>
+
+  </div>
+
 </div>
-
-<div class="text-orange-500 text-xl m-5 p-3 rounded">
-  <label for="password">Password: </label>
-  <input type="password" id="password" name="password" class="border border-gray-300 shadow-inner mb-5 mt-5 mx-auto py-2 px-10 w-full rounded hover:bg-blue-100" />
-</div>
-<p>(many <a class="text-blue-500" href="https://www.youtube.com/watch?v=D6-g6JgiUIs">thx to @Grafikart ;) !</a> ) </p>
-
-</div>
-
-
-
-
-
-
-<hr class="m-5" />
+<div class="flex">
 <div class="bg-green-100 w-full m-5 p-3 rounded justify-center"  data-theme="forest">
   <img src="{loginImage}" alt="Pokus Logo Image for Daisy UI  Example form" class="mx-auto w-full h-400 "/>
   <h1>Daisy UI components</h1>
